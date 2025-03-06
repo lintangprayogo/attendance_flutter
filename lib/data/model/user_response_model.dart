@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class User {
+class UserResponseModel {
   final int id;
   final String name;
   final String email;
@@ -11,7 +11,7 @@ class User {
   final String? faceEmbedding;
   final String? imageUrl;
 
-  User({
+  UserResponseModel({
     required this.id,
     required this.name,
     required this.email,
@@ -23,11 +23,13 @@ class User {
     required this.imageUrl,
   });
 
-  factory User.fromJson(String str) => User.fromMap(json.decode(str));
+  factory UserResponseModel.fromJson(String str) =>
+      UserResponseModel.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory User.fromMap(Map<String, dynamic> json) => User(
+  factory UserResponseModel.fromMap(Map<String, dynamic> json) =>
+      UserResponseModel(
         id: json['id'],
         name: json['name'],
         email: json['email'],

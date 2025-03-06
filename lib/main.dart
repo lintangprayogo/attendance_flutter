@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'core/core.dart';
-import 'presentation/auth/login/login_bloc.dart';
-import 'presentation/auth/logout/logout_bloc.dart';
+import 'data/datasource/attendance_remote_datasource.dart';
+import 'data/datasource/auth_remote_datasource.dart';
+import 'presentation/auth/bloc/login/login_bloc.dart';
+import 'presentation/auth/bloc/logout/logout_bloc.dart';
+import 'presentation/auth/splash_page.dart';
 import 'presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
-import 'ui/auth/splash_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +23,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => LoginBloc(),
+          create: (context) => LoginBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
-          create: (context) => LogoutBloc(),
+          create: (context) => LogoutBloc(AuthRemoteDatasource( )),
         ),
-        BlocProvider(create: (context)=> UpdateUserRegisterFaceBloc())
+        BlocProvider(create: (context)=> UpdateUserRegisterFaceBloc(AuthRemoteDatasource()))
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -5,5 +5,6 @@ class UpdateUserRegisterFaceState with _$UpdateUserRegisterFaceState {
   const factory UpdateUserRegisterFaceState.initial() = _Initial;
   const factory UpdateUserRegisterFaceState.loading() = _Loading;
   const factory UpdateUserRegisterFaceState.error(String error) = _Error;
-  const factory UpdateUserRegisterFaceState.success(User data) = _Success;
+  const factory UpdateUserRegisterFaceState.success(UserResponseModel data) =
+      _Success;
 }

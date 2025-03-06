@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/core.dart';
 import '../model/auth_response_model.dart';
-import '../model/user.dart';
+import '../model/user_response_model.dart';
 
 class AuthLocalDatasource {
   Future<void> saveAuthData(AuthResponseModel auth) async {
@@ -10,7 +10,7 @@ class AuthLocalDatasource {
     pref.setString(authKey, auth.toRawJson());
   }
 
-  Future<void> updateAuthData(User data) async {
+  Future<void> updateAuthData(UserResponseModel data) async {
     final pref = await SharedPreferences.getInstance();
     final authData = await getAuthData();
     if (authData != null) {

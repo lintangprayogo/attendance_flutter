@@ -9,7 +9,7 @@ import 'package:image/image.dart' as img;
 import '../../../core/core.dart';
 
 import '../../../data/datasource/auth_local_datasource.dart';
-import '../../../presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
+import '../bloc/update_user_register_face/update_user_register_face_bloc.dart';
 import '../widgets/face_detector_painter.dart';
 import 'main_page.dart';
 

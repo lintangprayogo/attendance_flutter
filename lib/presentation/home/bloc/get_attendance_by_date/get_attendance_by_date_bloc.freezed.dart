@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'checkin_attendance_bloc.dart';
+part of 'get_attendance_by_date_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,78 +15,66 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CheckinAttendanceEvent {
+mixin _$GetAttendanceByDateEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() fecth,
-    required TResult Function(CheckinRequest request) checkin,
-    required TResult Function(CheckoutRequest request) checkout,
+    required TResult Function(String date) getAttendanceByDate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? fecth,
-    TResult? Function(CheckinRequest request)? checkin,
-    TResult? Function(CheckoutRequest request)? checkout,
+    TResult? Function(String date)? getAttendanceByDate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? fecth,
-    TResult Function(CheckinRequest request)? checkin,
-    TResult Function(CheckoutRequest request)? checkout,
+    TResult Function(String date)? getAttendanceByDate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fecth,
-    required TResult Function(_Checkin value) checkin,
-    required TResult Function(_Checkout value) checkout,
+    required TResult Function(_GetAttendanceByDate value) getAttendanceByDate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fecth,
-    TResult? Function(_Checkin value)? checkin,
-    TResult? Function(_Checkout value)? checkout,
+    TResult? Function(_GetAttendanceByDate value)? getAttendanceByDate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fecth,
-    TResult Function(_Checkin value)? checkin,
-    TResult Function(_Checkout value)? checkout,
+    TResult Function(_GetAttendanceByDate value)? getAttendanceByDate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CheckinAttendanceEventCopyWith<$Res> {
-  factory $CheckinAttendanceEventCopyWith(CheckinAttendanceEvent value,
-          $Res Function(CheckinAttendanceEvent) then) =
-      _$CheckinAttendanceEventCopyWithImpl<$Res, CheckinAttendanceEvent>;
+abstract class $GetAttendanceByDateEventCopyWith<$Res> {
+  factory $GetAttendanceByDateEventCopyWith(GetAttendanceByDateEvent value,
+          $Res Function(GetAttendanceByDateEvent) then) =
+      _$GetAttendanceByDateEventCopyWithImpl<$Res, GetAttendanceByDateEvent>;
 }
 
 /// @nodoc
-class _$CheckinAttendanceEventCopyWithImpl<$Res,
-        $Val extends CheckinAttendanceEvent>
-    implements $CheckinAttendanceEventCopyWith<$Res> {
-  _$CheckinAttendanceEventCopyWithImpl(this._value, this._then);
+class _$GetAttendanceByDateEventCopyWithImpl<$Res,
+        $Val extends GetAttendanceByDateEvent>
+    implements $GetAttendanceByDateEventCopyWith<$Res> {
+  _$GetAttendanceByDateEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CheckinAttendanceEvent
+  /// Create a copy of GetAttendanceByDateEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -99,13 +87,13 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$GetAttendanceByDateEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckinAttendanceEvent
+  /// Create a copy of GetAttendanceByDateEvent
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -116,7 +104,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'CheckinAttendanceEvent.started()';
+    return 'GetAttendanceByDateEvent.started()';
   }
 
   @override
@@ -132,9 +120,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() fecth,
-    required TResult Function(CheckinRequest request) checkin,
-    required TResult Function(CheckoutRequest request) checkout,
+    required TResult Function(String date) getAttendanceByDate,
   }) {
     return started();
   }
@@ -143,9 +129,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? fecth,
-    TResult? Function(CheckinRequest request)? checkin,
-    TResult? Function(CheckoutRequest request)? checkout,
+    TResult? Function(String date)? getAttendanceByDate,
   }) {
     return started?.call();
   }
@@ -154,9 +138,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? fecth,
-    TResult Function(CheckinRequest request)? checkin,
-    TResult Function(CheckoutRequest request)? checkout,
+    TResult Function(String date)? getAttendanceByDate,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -169,9 +151,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fecth,
-    required TResult Function(_Checkin value) checkin,
-    required TResult Function(_Checkout value) checkout,
+    required TResult Function(_GetAttendanceByDate value) getAttendanceByDate,
   }) {
     return started(this);
   }
@@ -180,9 +160,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fecth,
-    TResult? Function(_Checkin value)? checkin,
-    TResult? Function(_Checkout value)? checkout,
+    TResult? Function(_GetAttendanceByDate value)? getAttendanceByDate,
   }) {
     return started?.call(this);
   }
@@ -191,9 +169,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fecth,
-    TResult Function(_Checkin value)? checkin,
-    TResult Function(_Checkout value)? checkout,
+    TResult Function(_GetAttendanceByDate value)? getAttendanceByDate,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -203,225 +179,104 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements CheckinAttendanceEvent {
+abstract class _Started implements GetAttendanceByDateEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$FetchImplCopyWith<$Res> {
-  factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FetchImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceEventCopyWithImpl<$Res, _$FetchImpl>
-    implements _$$FetchImplCopyWith<$Res> {
-  __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CheckinAttendanceEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$FetchImpl implements _Fetch {
-  const _$FetchImpl();
-
-  @override
-  String toString() {
-    return 'CheckinAttendanceEvent.fecth()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() fecth,
-    required TResult Function(CheckinRequest request) checkin,
-    required TResult Function(CheckoutRequest request) checkout,
-  }) {
-    return fecth();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? fecth,
-    TResult? Function(CheckinRequest request)? checkin,
-    TResult? Function(CheckoutRequest request)? checkout,
-  }) {
-    return fecth?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? fecth,
-    TResult Function(CheckinRequest request)? checkin,
-    TResult Function(CheckoutRequest request)? checkout,
-    required TResult orElse(),
-  }) {
-    if (fecth != null) {
-      return fecth();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fecth,
-    required TResult Function(_Checkin value) checkin,
-    required TResult Function(_Checkout value) checkout,
-  }) {
-    return fecth(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fecth,
-    TResult? Function(_Checkin value)? checkin,
-    TResult? Function(_Checkout value)? checkout,
-  }) {
-    return fecth?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fecth,
-    TResult Function(_Checkin value)? checkin,
-    TResult Function(_Checkout value)? checkout,
-    required TResult orElse(),
-  }) {
-    if (fecth != null) {
-      return fecth(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Fetch implements CheckinAttendanceEvent {
-  const factory _Fetch() = _$FetchImpl;
-}
-
-/// @nodoc
-abstract class _$$CheckinImplCopyWith<$Res> {
-  factory _$$CheckinImplCopyWith(
-          _$CheckinImpl value, $Res Function(_$CheckinImpl) then) =
-      __$$CheckinImplCopyWithImpl<$Res>;
+abstract class _$$GetAttendanceByDateImplCopyWith<$Res> {
+  factory _$$GetAttendanceByDateImplCopyWith(_$GetAttendanceByDateImpl value,
+          $Res Function(_$GetAttendanceByDateImpl) then) =
+      __$$GetAttendanceByDateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CheckinRequest request});
+  $Res call({String date});
 }
 
 /// @nodoc
-class __$$CheckinImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceEventCopyWithImpl<$Res, _$CheckinImpl>
-    implements _$$CheckinImplCopyWith<$Res> {
-  __$$CheckinImplCopyWithImpl(
-      _$CheckinImpl _value, $Res Function(_$CheckinImpl) _then)
+class __$$GetAttendanceByDateImplCopyWithImpl<$Res>
+    extends _$GetAttendanceByDateEventCopyWithImpl<$Res,
+        _$GetAttendanceByDateImpl>
+    implements _$$GetAttendanceByDateImplCopyWith<$Res> {
+  __$$GetAttendanceByDateImplCopyWithImpl(_$GetAttendanceByDateImpl _value,
+      $Res Function(_$GetAttendanceByDateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckinAttendanceEvent
+  /// Create a copy of GetAttendanceByDateEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? request = null,
+    Object? date = null,
   }) {
-    return _then(_$CheckinImpl(
-      null == request
-          ? _value.request
-          : request // ignore: cast_nullable_to_non_nullable
-              as CheckinRequest,
+    return _then(_$GetAttendanceByDateImpl(
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 
-class _$CheckinImpl implements _Checkin {
-  const _$CheckinImpl(this.request);
+class _$GetAttendanceByDateImpl implements _GetAttendanceByDate {
+  const _$GetAttendanceByDateImpl(this.date);
 
   @override
-  final CheckinRequest request;
+  final String date;
 
   @override
   String toString() {
-    return 'CheckinAttendanceEvent.checkin(request: $request)';
+    return 'GetAttendanceByDateEvent.getAttendanceByDate(date: $date)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CheckinImpl &&
-            (identical(other.request, request) || other.request == request));
+            other is _$GetAttendanceByDateImpl &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, request);
+  int get hashCode => Object.hash(runtimeType, date);
 
-  /// Create a copy of CheckinAttendanceEvent
+  /// Create a copy of GetAttendanceByDateEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CheckinImplCopyWith<_$CheckinImpl> get copyWith =>
-      __$$CheckinImplCopyWithImpl<_$CheckinImpl>(this, _$identity);
+  _$$GetAttendanceByDateImplCopyWith<_$GetAttendanceByDateImpl> get copyWith =>
+      __$$GetAttendanceByDateImplCopyWithImpl<_$GetAttendanceByDateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() fecth,
-    required TResult Function(CheckinRequest request) checkin,
-    required TResult Function(CheckoutRequest request) checkout,
+    required TResult Function(String date) getAttendanceByDate,
   }) {
-    return checkin(request);
+    return getAttendanceByDate(date);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? fecth,
-    TResult? Function(CheckinRequest request)? checkin,
-    TResult? Function(CheckoutRequest request)? checkout,
+    TResult? Function(String date)? getAttendanceByDate,
   }) {
-    return checkin?.call(request);
+    return getAttendanceByDate?.call(date);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? fecth,
-    TResult Function(CheckinRequest request)? checkin,
-    TResult Function(CheckoutRequest request)? checkout,
+    TResult Function(String date)? getAttendanceByDate,
     required TResult orElse(),
   }) {
-    if (checkin != null) {
-      return checkin(request);
+    if (getAttendanceByDate != null) {
+      return getAttendanceByDate(date);
     }
     return orElse();
   }
@@ -430,228 +285,74 @@ class _$CheckinImpl implements _Checkin {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fecth,
-    required TResult Function(_Checkin value) checkin,
-    required TResult Function(_Checkout value) checkout,
+    required TResult Function(_GetAttendanceByDate value) getAttendanceByDate,
   }) {
-    return checkin(this);
+    return getAttendanceByDate(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fecth,
-    TResult? Function(_Checkin value)? checkin,
-    TResult? Function(_Checkout value)? checkout,
+    TResult? Function(_GetAttendanceByDate value)? getAttendanceByDate,
   }) {
-    return checkin?.call(this);
+    return getAttendanceByDate?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fecth,
-    TResult Function(_Checkin value)? checkin,
-    TResult Function(_Checkout value)? checkout,
+    TResult Function(_GetAttendanceByDate value)? getAttendanceByDate,
     required TResult orElse(),
   }) {
-    if (checkin != null) {
-      return checkin(this);
+    if (getAttendanceByDate != null) {
+      return getAttendanceByDate(this);
     }
     return orElse();
   }
 }
 
-abstract class _Checkin implements CheckinAttendanceEvent {
-  const factory _Checkin(final CheckinRequest request) = _$CheckinImpl;
+abstract class _GetAttendanceByDate implements GetAttendanceByDateEvent {
+  const factory _GetAttendanceByDate(final String date) =
+      _$GetAttendanceByDateImpl;
 
-  CheckinRequest get request;
+  String get date;
 
-  /// Create a copy of CheckinAttendanceEvent
+  /// Create a copy of GetAttendanceByDateEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CheckinImplCopyWith<_$CheckinImpl> get copyWith =>
+  _$$GetAttendanceByDateImplCopyWith<_$GetAttendanceByDateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CheckoutImplCopyWith<$Res> {
-  factory _$$CheckoutImplCopyWith(
-          _$CheckoutImpl value, $Res Function(_$CheckoutImpl) then) =
-      __$$CheckoutImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({CheckoutRequest request});
-}
-
-/// @nodoc
-class __$$CheckoutImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceEventCopyWithImpl<$Res, _$CheckoutImpl>
-    implements _$$CheckoutImplCopyWith<$Res> {
-  __$$CheckoutImplCopyWithImpl(
-      _$CheckoutImpl _value, $Res Function(_$CheckoutImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of CheckinAttendanceEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? request = null,
-  }) {
-    return _then(_$CheckoutImpl(
-      null == request
-          ? _value.request
-          : request // ignore: cast_nullable_to_non_nullable
-              as CheckoutRequest,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$CheckoutImpl implements _Checkout {
-  const _$CheckoutImpl(this.request);
-
-  @override
-  final CheckoutRequest request;
-
-  @override
-  String toString() {
-    return 'CheckinAttendanceEvent.checkout(request: $request)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CheckoutImpl &&
-            (identical(other.request, request) || other.request == request));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, request);
-
-  /// Create a copy of CheckinAttendanceEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CheckoutImplCopyWith<_$CheckoutImpl> get copyWith =>
-      __$$CheckoutImplCopyWithImpl<_$CheckoutImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() fecth,
-    required TResult Function(CheckinRequest request) checkin,
-    required TResult Function(CheckoutRequest request) checkout,
-  }) {
-    return checkout(request);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? fecth,
-    TResult? Function(CheckinRequest request)? checkin,
-    TResult? Function(CheckoutRequest request)? checkout,
-  }) {
-    return checkout?.call(request);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? fecth,
-    TResult Function(CheckinRequest request)? checkin,
-    TResult Function(CheckoutRequest request)? checkout,
-    required TResult orElse(),
-  }) {
-    if (checkout != null) {
-      return checkout(request);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fecth,
-    required TResult Function(_Checkin value) checkin,
-    required TResult Function(_Checkout value) checkout,
-  }) {
-    return checkout(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fecth,
-    TResult? Function(_Checkin value)? checkin,
-    TResult? Function(_Checkout value)? checkout,
-  }) {
-    return checkout?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fecth,
-    TResult Function(_Checkin value)? checkin,
-    TResult Function(_Checkout value)? checkout,
-    required TResult orElse(),
-  }) {
-    if (checkout != null) {
-      return checkout(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Checkout implements CheckinAttendanceEvent {
-  const factory _Checkout(final CheckoutRequest request) = _$CheckoutImpl;
-
-  CheckoutRequest get request;
-
-  /// Create a copy of CheckinAttendanceEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CheckoutImplCopyWith<_$CheckoutImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$CheckinAttendanceState {
+mixin _$GetAttendanceByDateState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AttendanceRecordModel? attendance) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(AttendanceRecordModel attendance) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AttendanceRecordModel? attendance)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(AttendanceRecordModel attendance)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AttendanceRecordModel? attendance)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(AttendanceRecordModel attendance)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -661,6 +362,7 @@ mixin _$CheckinAttendanceState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Empty value) empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -669,6 +371,7 @@ mixin _$CheckinAttendanceState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Empty value)? empty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -677,30 +380,31 @@ mixin _$CheckinAttendanceState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CheckinAttendanceStateCopyWith<$Res> {
-  factory $CheckinAttendanceStateCopyWith(CheckinAttendanceState value,
-          $Res Function(CheckinAttendanceState) then) =
-      _$CheckinAttendanceStateCopyWithImpl<$Res, CheckinAttendanceState>;
+abstract class $GetAttendanceByDateStateCopyWith<$Res> {
+  factory $GetAttendanceByDateStateCopyWith(GetAttendanceByDateState value,
+          $Res Function(GetAttendanceByDateState) then) =
+      _$GetAttendanceByDateStateCopyWithImpl<$Res, GetAttendanceByDateState>;
 }
 
 /// @nodoc
-class _$CheckinAttendanceStateCopyWithImpl<$Res,
-        $Val extends CheckinAttendanceState>
-    implements $CheckinAttendanceStateCopyWith<$Res> {
-  _$CheckinAttendanceStateCopyWithImpl(this._value, this._then);
+class _$GetAttendanceByDateStateCopyWithImpl<$Res,
+        $Val extends GetAttendanceByDateState>
+    implements $GetAttendanceByDateStateCopyWith<$Res> {
+  _$GetAttendanceByDateStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -713,13 +417,13 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$GetAttendanceByDateStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -730,7 +434,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'CheckinAttendanceState.initial()';
+    return 'GetAttendanceByDateState.initial()';
   }
 
   @override
@@ -747,8 +451,9 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AttendanceRecordModel? attendance) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(AttendanceRecordModel attendance) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
   }) {
     return initial();
   }
@@ -758,8 +463,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AttendanceRecordModel? attendance)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(AttendanceRecordModel attendance)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
   }) {
     return initial?.call();
   }
@@ -769,8 +475,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AttendanceRecordModel? attendance)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(AttendanceRecordModel attendance)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -786,6 +493,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Empty value) empty,
   }) {
     return initial(this);
   }
@@ -797,6 +505,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Empty value)? empty,
   }) {
     return initial?.call(this);
   }
@@ -808,6 +517,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -817,7 +527,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements CheckinAttendanceState {
+abstract class _Initial implements GetAttendanceByDateState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -830,13 +540,13 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$GetAttendanceByDateStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -847,7 +557,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'CheckinAttendanceState.loading()';
+    return 'GetAttendanceByDateState.loading()';
   }
 
   @override
@@ -864,8 +574,9 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AttendanceRecordModel? attendance) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(AttendanceRecordModel attendance) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
   }) {
     return loading();
   }
@@ -875,8 +586,9 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AttendanceRecordModel? attendance)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(AttendanceRecordModel attendance)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
   }) {
     return loading?.call();
   }
@@ -886,8 +598,9 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AttendanceRecordModel? attendance)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(AttendanceRecordModel attendance)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -903,6 +616,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Empty value) empty,
   }) {
     return loading(this);
   }
@@ -914,6 +628,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Empty value)? empty,
   }) {
     return loading?.call(this);
   }
@@ -925,6 +640,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -934,7 +650,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements CheckinAttendanceState {
+abstract class _Loading implements GetAttendanceByDateState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -944,29 +660,29 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AttendanceRecordModel? attendance});
+  $Res call({AttendanceRecordModel attendance});
 }
 
 /// @nodoc
 class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceStateCopyWithImpl<$Res, _$LoadedImpl>
+    extends _$GetAttendanceByDateStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
       _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? attendance = freezed,
+    Object? attendance = null,
   }) {
     return _then(_$LoadedImpl(
-      freezed == attendance
+      null == attendance
           ? _value.attendance
           : attendance // ignore: cast_nullable_to_non_nullable
-              as AttendanceRecordModel?,
+              as AttendanceRecordModel,
     ));
   }
 }
@@ -977,11 +693,11 @@ class _$LoadedImpl implements _Loaded {
   const _$LoadedImpl(this.attendance);
 
   @override
-  final AttendanceRecordModel? attendance;
+  final AttendanceRecordModel attendance;
 
   @override
   String toString() {
-    return 'CheckinAttendanceState.loaded(attendance: $attendance)';
+    return 'GetAttendanceByDateState.loaded(attendance: $attendance)';
   }
 
   @override
@@ -996,7 +712,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   int get hashCode => Object.hash(runtimeType, attendance);
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -1009,8 +725,9 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AttendanceRecordModel? attendance) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(AttendanceRecordModel attendance) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
   }) {
     return loaded(attendance);
   }
@@ -1020,8 +737,9 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AttendanceRecordModel? attendance)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(AttendanceRecordModel attendance)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
   }) {
     return loaded?.call(attendance);
   }
@@ -1031,8 +749,9 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AttendanceRecordModel? attendance)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(AttendanceRecordModel attendance)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1048,6 +767,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Empty value) empty,
   }) {
     return loaded(this);
   }
@@ -1059,6 +779,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Empty value)? empty,
   }) {
     return loaded?.call(this);
   }
@@ -1070,6 +791,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1079,12 +801,12 @@ class _$LoadedImpl implements _Loaded {
   }
 }
 
-abstract class _Loaded implements CheckinAttendanceState {
-  const factory _Loaded(final AttendanceRecordModel? attendance) = _$LoadedImpl;
+abstract class _Loaded implements GetAttendanceByDateState {
+  const factory _Loaded(final AttendanceRecordModel attendance) = _$LoadedImpl;
 
-  AttendanceRecordModel? get attendance;
+  AttendanceRecordModel get attendance;
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
@@ -1097,28 +819,28 @@ abstract class _$$ErrorImplCopyWith<$Res> {
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String error});
+  $Res call({String message});
 }
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$CheckinAttendanceStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$GetAttendanceByDateStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? message = null,
   }) {
     return _then(_$ErrorImpl(
-      null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1127,14 +849,14 @@ class __$$ErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ErrorImpl implements _Error {
-  const _$ErrorImpl(this.error);
+  const _$ErrorImpl(this.message);
 
   @override
-  final String error;
+  final String message;
 
   @override
   String toString() {
-    return 'CheckinAttendanceState.error(error: $error)';
+    return 'GetAttendanceByDateState.error(message: $message)';
   }
 
   @override
@@ -1142,13 +864,13 @@ class _$ErrorImpl implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorImpl &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -1161,10 +883,11 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AttendanceRecordModel? attendance) loaded,
-    required TResult Function(String error) error,
+    required TResult Function(AttendanceRecordModel attendance) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
   }) {
-    return error(this.error);
+    return error(message);
   }
 
   @override
@@ -1172,10 +895,11 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(AttendanceRecordModel? attendance)? loaded,
-    TResult? Function(String error)? error,
+    TResult? Function(AttendanceRecordModel attendance)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
   }) {
-    return error?.call(this.error);
+    return error?.call(message);
   }
 
   @override
@@ -1183,12 +907,13 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AttendanceRecordModel? attendance)? loaded,
-    TResult Function(String error)? error,
+    TResult Function(AttendanceRecordModel attendance)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(this.error);
+      return error(message);
     }
     return orElse();
   }
@@ -1200,6 +925,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Empty value) empty,
   }) {
     return error(this);
   }
@@ -1211,6 +937,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Empty value)? empty,
   }) {
     return error?.call(this);
   }
@@ -1222,6 +949,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Empty value)? empty,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1231,14 +959,137 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements CheckinAttendanceState {
-  const factory _Error(final String error) = _$ErrorImpl;
+abstract class _Error implements GetAttendanceByDateState {
+  const factory _Error(final String message) = _$ErrorImpl;
 
-  String get error;
+  String get message;
 
-  /// Create a copy of CheckinAttendanceState
+  /// Create a copy of GetAttendanceByDateState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyImplCopyWith<$Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl value, $Res Function(_$EmptyImpl) then) =
+      __$$EmptyImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyImplCopyWithImpl<$Res>
+    extends _$GetAttendanceByDateStateCopyWithImpl<$Res, _$EmptyImpl>
+    implements _$$EmptyImplCopyWith<$Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl _value, $Res Function(_$EmptyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GetAttendanceByDateState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$EmptyImpl implements _Empty {
+  const _$EmptyImpl();
+
+  @override
+  String toString() {
+    return 'GetAttendanceByDateState.empty()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AttendanceRecordModel attendance) loaded,
+    required TResult Function(String message) error,
+    required TResult Function() empty,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AttendanceRecordModel attendance)? loaded,
+    TResult? Function(String message)? error,
+    TResult? Function()? empty,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AttendanceRecordModel attendance)? loaded,
+    TResult Function(String message)? error,
+    TResult Function()? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Empty value) empty,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Empty value)? empty,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Empty value)? empty,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Empty implements GetAttendanceByDateState {
+  const factory _Empty() = _$EmptyImpl;
 }

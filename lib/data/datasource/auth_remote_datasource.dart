@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../../core/core.dart';
 import '../model/auth_response_model.dart';
-import '../model/user.dart';
+import '../model/user_response_model.dart';
 import 'auth_local_datasource.dart';
 
 class AuthRemoteDatasource {
@@ -50,7 +50,7 @@ class AuthRemoteDatasource {
     }
   }
 
-  Future<Either<String, User>> updateProfileRegisterFace(
+  Future<Either<String, UserResponseModel>> updateProfileRegisterFace(
       {required String embedding}) async {
     try {
       final auth = await _authLocalDatasource.getAuthData();
@@ -64,7 +64,7 @@ class AuthRemoteDatasource {
             'Authorization': 'Bearer ${auth?.token}',
           }));
 
-      final user = User.fromMap(response.data['user']);
+      final user = UserResponseModel.fromMap(response.data['user']);
       return right(user);
     } catch (e) {
       if (e is DioException) {
