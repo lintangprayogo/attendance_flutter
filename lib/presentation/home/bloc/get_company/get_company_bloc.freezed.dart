@@ -19,38 +19,38 @@ mixin _$GetCompanyEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() fetch,
+    required TResult Function() getCompany,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? fetch,
+    TResult? Function()? getCompany,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? fetch,
+    TResult Function()? getCompany,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetCompany value) getCompany,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetCompany value)? getCompany,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetCompany value)? getCompany,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() fetch,
+    required TResult Function() getCompany,
   }) {
     return started();
   }
@@ -128,7 +128,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? fetch,
+    TResult? Function()? getCompany,
   }) {
     return started?.call();
   }
@@ -137,7 +137,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? fetch,
+    TResult Function()? getCompany,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -150,7 +150,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetCompany value) getCompany,
   }) {
     return started(this);
   }
@@ -159,7 +159,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetCompany value)? getCompany,
   }) {
     return started?.call(this);
   }
@@ -168,7 +168,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetCompany value)? getCompany,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -183,18 +183,18 @@ abstract class _Started implements GetCompanyEvent {
 }
 
 /// @nodoc
-abstract class _$$FetchImplCopyWith<$Res> {
-  factory _$$FetchImplCopyWith(
-          _$FetchImpl value, $Res Function(_$FetchImpl) then) =
-      __$$FetchImplCopyWithImpl<$Res>;
+abstract class _$$GetCompanyImplCopyWith<$Res> {
+  factory _$$GetCompanyImplCopyWith(
+          _$GetCompanyImpl value, $Res Function(_$GetCompanyImpl) then) =
+      __$$GetCompanyImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchImplCopyWithImpl<$Res>
-    extends _$GetCompanyEventCopyWithImpl<$Res, _$FetchImpl>
-    implements _$$FetchImplCopyWith<$Res> {
-  __$$FetchImplCopyWithImpl(
-      _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
+class __$$GetCompanyImplCopyWithImpl<$Res>
+    extends _$GetCompanyEventCopyWithImpl<$Res, _$GetCompanyImpl>
+    implements _$$GetCompanyImplCopyWith<$Res> {
+  __$$GetCompanyImplCopyWithImpl(
+      _$GetCompanyImpl _value, $Res Function(_$GetCompanyImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of GetCompanyEvent
@@ -203,18 +203,18 @@ class __$$FetchImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FetchImpl implements _Fetch {
-  const _$FetchImpl();
+class _$GetCompanyImpl implements _GetCompany {
+  const _$GetCompanyImpl();
 
   @override
   String toString() {
-    return 'GetCompanyEvent.fetch()';
+    return 'GetCompanyEvent.getCompany()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchImpl);
+        (other.runtimeType == runtimeType && other is _$GetCompanyImpl);
   }
 
   @override
@@ -224,29 +224,29 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() fetch,
+    required TResult Function() getCompany,
   }) {
-    return fetch();
+    return getCompany();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? fetch,
+    TResult? Function()? getCompany,
   }) {
-    return fetch?.call();
+    return getCompany?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? fetch,
+    TResult Function()? getCompany,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch();
+    if (getCompany != null) {
+      return getCompany();
     }
     return orElse();
   }
@@ -255,36 +255,36 @@ class _$FetchImpl implements _Fetch {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetCompany value) getCompany,
   }) {
-    return fetch(this);
+    return getCompany(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetCompany value)? getCompany,
   }) {
-    return fetch?.call(this);
+    return getCompany?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetCompany value)? getCompany,
     required TResult orElse(),
   }) {
-    if (fetch != null) {
-      return fetch(this);
+    if (getCompany != null) {
+      return getCompany(this);
     }
     return orElse();
   }
 }
 
-abstract class _Fetch implements GetCompanyEvent {
-  const factory _Fetch() = _$FetchImpl;
+abstract class _GetCompany implements GetCompanyEvent {
+  const factory _GetCompany() = _$GetCompanyImpl;
 }
 
 /// @nodoc
@@ -292,27 +292,24 @@ mixin _$GetCompanyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
     required TResult Function() loading,
-    required TResult Function(CompanyResponseModel company) sucess,
+    required TResult Function(CompanyResponseModel company) success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
     TResult? Function()? loading,
-    TResult? Function(CompanyResponseModel company)? sucess,
+    TResult? Function(CompanyResponseModel company)? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
     TResult Function()? loading,
-    TResult Function(CompanyResponseModel company)? sucess,
+    TResult Function(CompanyResponseModel company)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -320,27 +317,24 @@ mixin _$GetCompanyState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) sucess,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? sucess,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? sucess,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -410,9 +404,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
     required TResult Function() loading,
-    required TResult Function(CompanyResponseModel company) sucess,
+    required TResult Function(CompanyResponseModel company) success,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -422,9 +415,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
     TResult? Function()? loading,
-    TResult? Function(CompanyResponseModel company)? sucess,
+    TResult? Function(CompanyResponseModel company)? success,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -434,9 +426,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
     TResult Function()? loading,
-    TResult Function(CompanyResponseModel company)? sucess,
+    TResult Function(CompanyResponseModel company)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -450,9 +441,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) sucess,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -462,9 +452,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? sucess,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -474,9 +463,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? sucess,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -489,129 +477,6 @@ class _$InitialImpl implements _Initial {
 
 abstract class _Initial implements GetCompanyState {
   const factory _Initial() = _$InitialImpl;
-}
-
-/// @nodoc
-abstract class _$$LoadedImplCopyWith<$Res> {
-  factory _$$LoadedImplCopyWith(
-          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
-      __$$LoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadedImplCopyWithImpl<$Res>
-    extends _$GetCompanyStateCopyWithImpl<$Res, _$LoadedImpl>
-    implements _$$LoadedImplCopyWith<$Res> {
-  __$$LoadedImplCopyWithImpl(
-      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GetCompanyState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl();
-
-  @override
-  String toString() {
-    return 'GetCompanyState.loaded()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() loading,
-    required TResult Function(CompanyResponseModel company) sucess,
-    required TResult Function(String error) error,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? loading,
-    TResult? Function(CompanyResponseModel company)? sucess,
-    TResult? Function(String error)? error,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? loading,
-    TResult Function(CompanyResponseModel company)? sucess,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loaded value) loaded,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) sucess,
-    required TResult Function(_Error value) error,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? sucess,
-    TResult? Function(_Error value)? error,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? sucess,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loaded implements GetCompanyState {
-  const factory _Loaded() = _$LoadedImpl;
 }
 
 /// @nodoc
@@ -656,9 +521,8 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
     required TResult Function() loading,
-    required TResult Function(CompanyResponseModel company) sucess,
+    required TResult Function(CompanyResponseModel company) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -668,9 +532,8 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
     TResult? Function()? loading,
-    TResult? Function(CompanyResponseModel company)? sucess,
+    TResult? Function(CompanyResponseModel company)? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -680,9 +543,8 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
     TResult Function()? loading,
-    TResult Function(CompanyResponseModel company)? sucess,
+    TResult Function(CompanyResponseModel company)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -696,9 +558,8 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) sucess,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -708,9 +569,8 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? sucess,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -720,9 +580,8 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? sucess,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -780,7 +639,7 @@ class _$SuccessImpl implements _Success {
 
   @override
   String toString() {
-    return 'GetCompanyState.sucess(company: $company)';
+    return 'GetCompanyState.success(company: $company)';
   }
 
   @override
@@ -806,38 +665,35 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
     required TResult Function() loading,
-    required TResult Function(CompanyResponseModel company) sucess,
+    required TResult Function(CompanyResponseModel company) success,
     required TResult Function(String error) error,
   }) {
-    return sucess(company);
+    return success(company);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
     TResult? Function()? loading,
-    TResult? Function(CompanyResponseModel company)? sucess,
+    TResult? Function(CompanyResponseModel company)? success,
     TResult? Function(String error)? error,
   }) {
-    return sucess?.call(company);
+    return success?.call(company);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
     TResult Function()? loading,
-    TResult Function(CompanyResponseModel company)? sucess,
+    TResult Function(CompanyResponseModel company)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
-    if (sucess != null) {
-      return sucess(company);
+    if (success != null) {
+      return success(company);
     }
     return orElse();
   }
@@ -846,38 +702,35 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) sucess,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
-    return sucess(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? sucess,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
-    return sucess?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? sucess,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (sucess != null) {
-      return sucess(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
@@ -964,9 +817,8 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
     required TResult Function() loading,
-    required TResult Function(CompanyResponseModel company) sucess,
+    required TResult Function(CompanyResponseModel company) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -976,9 +828,8 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
     TResult? Function()? loading,
-    TResult? Function(CompanyResponseModel company)? sucess,
+    TResult? Function(CompanyResponseModel company)? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -988,9 +839,8 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
     TResult Function()? loading,
-    TResult Function(CompanyResponseModel company)? sucess,
+    TResult Function(CompanyResponseModel company)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -1004,9 +854,8 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) sucess,
+    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -1016,9 +865,8 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? sucess,
+    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -1028,9 +876,8 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? sucess,
+    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

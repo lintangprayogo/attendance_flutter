@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../data/datasource/attendance_remote_datasource.dart';
-import '../../../../data/model/request/check_out_request.dart';
+import '../../../../data/model/request/check_in_check_out_request.dart';
 import '../../../../data/model/response/attendance_response_model.dart';
 
 part 'checkout_attendance_event.dart';

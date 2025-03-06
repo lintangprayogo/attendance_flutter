@@ -8,8 +8,10 @@ import 'data/datasource/auth_remote_datasource.dart';
 import 'presentation/auth/bloc/login/login_bloc.dart';
 import 'presentation/auth/bloc/logout/logout_bloc.dart';
 import 'presentation/auth/splash_page.dart';
+import 'presentation/home/bloc/checkin_attendace/checkin_attendance_bloc.dart';
+import 'presentation/home/bloc/checkout_attendace/checkout_attendance_bloc.dart';
+import 'presentation/home/bloc/get_company/get_company_bloc.dart';
 import 'presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -26,9 +28,20 @@ class MyApp extends StatelessWidget {
           create: (context) => LoginBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
-          create: (context) => LogoutBloc(AuthRemoteDatasource( )),
+          create: (context) => LogoutBloc(AuthRemoteDatasource()),
         ),
-        BlocProvider(create: (context)=> UpdateUserRegisterFaceBloc(AuthRemoteDatasource()))
+        BlocProvider(
+            create: (context) =>
+                UpdateUserRegisterFaceBloc(AuthRemoteDatasource())),
+        BlocProvider(
+            create: (context) =>
+                CheckinAttendanceBloc(AttendanceRemoteDatasource())),
+        BlocProvider(
+            create: (context) =>
+                CheckoutAttendanceBloc(AttendanceRemoteDatasource())),
+        BlocProvider(
+            create: (context) =>
+                GetCompanyBloc(AttendanceRemoteDatasource())),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -3,8 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../../core/constants/constants.dart';
 import '../model/company/company_response_model.dart';
-import '../model/request/check_in_request.dart';
-import '../model/request/check_out_request.dart';
+import '../model/request/check_in_check_out_request.dart';
 import '../model/response/attendance_response_model.dart';
 import 'auth_local_datasource.dart';
 
@@ -36,7 +35,7 @@ class AttendanceRemoteDatasource {
   }
 
   Future<Either<String, AttendanceRecordModel>> checkin(
-      CheckinRequest request) async {
+      CheckinCheckOutRequest request) async {
     try {
       final auth = await _authLocalDatasource.getAuthData();
 
@@ -57,7 +56,7 @@ class AttendanceRemoteDatasource {
   }
 
   Future<Either<String, AttendanceRecordModel>> checkout(
-      CheckoutRequest request) async {
+      CheckinCheckOutRequest request) async {
     try {
       final auth = await _authLocalDatasource.getAuthData();
 
