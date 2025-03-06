@@ -1,33 +1,33 @@
 import 'dart:convert';
 
 class User {
-    final int id;
-    final String name;
-    final String email;
-    final String phone;
-    final String role;
-    final String position;
-    final String department;
-    final String? faceEmbedding;
-    final String? imageUrl;
+  final int id;
+  final String name;
+  final String email;
+  final String phone;
+  final String role;
+  final String position;
+  final String department;
+  final String? faceEmbedding;
+  final String? imageUrl;
 
-    User({
-        required this.id,
-        required this.name,
-        required this.email,
-        required this.phone,
-        required this.role,
-        required this.position,
-        required this.department,
-        required this.faceEmbedding,
-        required this.imageUrl,
-    });
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.role,
+    required this.position,
+    required this.department,
+    required this.faceEmbedding,
+    required this.imageUrl,
+  });
 
-    factory User.fromRawJson(String str) => User.fromJson(json.decode(str));
+  factory User.fromJson(String str) => User.fromMap(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toJson() => json.encode(toMap());
 
-    factory User.fromJson(Map<String, dynamic> json) => User(
+  factory User.fromMap(Map<String, dynamic> json) => User(
         id: json['id'],
         name: json['name'],
         email: json['email'],
@@ -37,9 +37,9 @@ class User {
         department: json['department'],
         faceEmbedding: json['face_embedding'],
         imageUrl: json['image_url'],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'id': id,
         'name': name,
         'email': email,
@@ -49,5 +49,5 @@ class User {
         'department': department,
         'face_embedding': faceEmbedding,
         'image_url': imageUrl,
-    };
+      };
 }

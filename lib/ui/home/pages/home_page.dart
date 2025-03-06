@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/core.dart';
 import '../widgets/menu_button.dart';
-import 'attendance_page.dart';
+import 'register_face_attendance_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -185,7 +185,7 @@ class HomePage extends StatelessWidget {
                           Button.filled(
                             onPressed: () {
                               context.pop();
-                              context.push(const AttendancePage());
+                              context.push(const RegisterFaceAttendencePage());
                             },
                             label: 'Izinkan',
                           ),

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 const List<String> _dayNames = [
   'Minggu',
   'Senin',
@@ -31,6 +33,19 @@ extension DateTimeExt on DateTime {
     String year = this.year.toString();
 
     return '$dayName, $day $month $year';
+  }
+
+  String toFormattedServerDate() {
+    return DateFormat('Y-m-d').format(this);
+  }
+
+
+  String toFormattedServerTime() {
+    String hour = this.hour.toString().padLeft(2, '0');
+    String minute = this.minute.toString().padLeft(2, '0');
+    String second = this.second.toString().padLeft(2, '0');
+
+    return '$hour:$minute:$second';
   }
 
   String toFormattedTime() {

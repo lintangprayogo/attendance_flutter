@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../../core/core.dart';
 import '../model/auth_response_model.dart';
+import '../model/user.dart';
 import 'auth_local_datasource.dart';
 
 class AuthRemoteDatasource {
@@ -21,7 +22,7 @@ class AuthRemoteDatasource {
       return right(authModel);
     } catch (e) {
       if (e is DioException) {
-        return Left(e.response?.statusMessage ?? "");
+        return Left(e.response?.statusMessage ?? '');
       }
       return left(e.toString());
     }
@@ -34,7 +35,7 @@ class AuthRemoteDatasource {
       await dio.post('${baseUrl}logout',
           options: Options(
             headers: {
-              'Authorization': 'Bearer ${auth?.accessToken}',
+              'Authorization': 'Bearer ${auth?.token}',
               'Content-Type': 'application/json'
             },
           ));
@@ -44,6 +45,30 @@ class AuthRemoteDatasource {
     } catch (e) {
       if (e is DioException) {
         return left(e.response?.data['message'] ?? 'Something went wrong');
+      }
+      return left(e.toString());
+    }
+  }
+
+  Future<Either<String, User>> updateProfileRegisterFace(
+      {required String embedding}) async {
+    try {
+      final auth = await _authLocalDatasource.getAuthData();
+
+      final response = await dio.post('${baseUrl}update-profile',
+          data: {
+            'face_embedding': embedding,
+          },
+          options: Options(headers: {
+            'accept': 'application/json',
+            'Authorization': 'Bearer ${auth?.token}',
+          }));
+
+      final user = User.fromMap(response.data['user']);
+      return right(user);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(e.response?.statusMessage ?? '');
       }
       return left(e.toString());
     }

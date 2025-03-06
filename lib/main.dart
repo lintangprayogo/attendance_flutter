@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'core/core.dart';
 import 'presentation/auth/login/login_bloc.dart';
 import 'presentation/auth/logout/logout_bloc.dart';
+import 'presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
 import 'ui/auth/splash_page.dart';
 
 void main() {
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LogoutBloc(),
-        )
+        ),
+        BlocProvider(create: (context)=> UpdateUserRegisterFaceBloc())
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
             dividerTheme:
-                DividerThemeData(color: AppColors.light.withOpacity(0.5)),
+                DividerThemeData(color: AppColors.light.withAlpha(0x50)),
             dialogTheme: const DialogTheme(elevation: 0),
             textTheme: GoogleFonts.kumbhSansTextTheme(
               Theme.of(context).textTheme,

@@ -2,15 +2,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/core.dart';
 import '../model/auth_response_model.dart';
+import '../model/user.dart';
 
 class AuthLocalDatasource {
-  
   Future<void> saveAuthData(AuthResponseModel auth) async {
     final pref = await SharedPreferences.getInstance();
     pref.setString(authKey, auth.toRawJson());
   }
 
-    
+  Future<void> updateAuthData(User data) async {
+    final pref = await SharedPreferences.getInstance();
+    final authData = await getAuthData();
+    if (authData != null) {
+      final updatedData = authData.copyWith(user: data);
+      await pref.setString(authKey, updatedData.toRawJson());
+    }
+  }
+
   Future<void> removeAuthData() async {
     final pref = await SharedPreferences.getInstance();
     pref.remove(authKey);
@@ -28,7 +36,7 @@ class AuthLocalDatasource {
 
   Future<bool> isAuth() async {
     final pref = await SharedPreferences.getInstance();
-    final data = pref.getString('auth_data');
+    final data = pref.getString(authKey);
     return data != null;
   }
 }

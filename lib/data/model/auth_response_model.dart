@@ -3,15 +3,23 @@ import 'dart:convert';
 import 'user.dart';
 
 class AuthResponseModel {
-  final String message;
-  final String accessToken;
+  final String token;
   final User user;
 
   AuthResponseModel({
-    required this.message,
-    required this.accessToken,
+    required this.token,
     required this.user,
   });
+
+  AuthResponseModel copyWith({
+    User? user,
+    String? token,
+  }) {
+    return AuthResponseModel(
+      user: user ?? this.user,
+      token: token ?? this.token,
+    );
+  }
 
   factory AuthResponseModel.fromJson(String str) =>
       AuthResponseModel.fromMap(json.decode(str));
@@ -20,14 +28,12 @@ class AuthResponseModel {
 
   factory AuthResponseModel.fromMap(Map<String, dynamic> json) =>
       AuthResponseModel(
-        message: json['message'],
-        accessToken: json['access_token'],
-        user: User.fromJson(json['user']),
+        token: json['access_token'],
+        user: User.fromMap(json['user']),
       );
 
   Map<String, dynamic> toJson() => {
-        'message': message,
-        'access_token': accessToken,
-        'user': user.toJson(),
+        'access_token': token,
+        'user': user.toMap(),
       };
 }
