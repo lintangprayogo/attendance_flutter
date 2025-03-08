@@ -19,19 +19,19 @@ mixin _$CheckinAttendanceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CheckinRequest request) checkin,
+    required TResult Function(CheckinCheckOutRequest request) checkin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CheckinRequest request)? checkin,
+    TResult? Function(CheckinCheckOutRequest request)? checkin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CheckinRequest request)? checkin,
+    TResult Function(CheckinCheckOutRequest request)? checkin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CheckinRequest request) checkin,
+    required TResult Function(CheckinCheckOutRequest request) checkin,
   }) {
     return started();
   }
@@ -129,7 +129,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CheckinRequest request)? checkin,
+    TResult? Function(CheckinCheckOutRequest request)? checkin,
   }) {
     return started?.call();
   }
@@ -138,7 +138,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CheckinRequest request)? checkin,
+    TResult Function(CheckinCheckOutRequest request)? checkin,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -189,7 +189,7 @@ abstract class _$$CheckinImplCopyWith<$Res> {
           _$CheckinImpl value, $Res Function(_$CheckinImpl) then) =
       __$$CheckinImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CheckinRequest request});
+  $Res call({CheckinCheckOutRequest request});
 }
 
 /// @nodoc
@@ -211,7 +211,7 @@ class __$$CheckinImplCopyWithImpl<$Res>
       null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
-              as CheckinRequest,
+              as CheckinCheckOutRequest,
     ));
   }
 }
@@ -222,7 +222,7 @@ class _$CheckinImpl implements _Checkin {
   const _$CheckinImpl(this.request);
 
   @override
-  final CheckinRequest request;
+  final CheckinCheckOutRequest request;
 
   @override
   String toString() {
@@ -252,7 +252,7 @@ class _$CheckinImpl implements _Checkin {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CheckinRequest request) checkin,
+    required TResult Function(CheckinCheckOutRequest request) checkin,
   }) {
     return checkin(request);
   }
@@ -261,7 +261,7 @@ class _$CheckinImpl implements _Checkin {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CheckinRequest request)? checkin,
+    TResult? Function(CheckinCheckOutRequest request)? checkin,
   }) {
     return checkin?.call(request);
   }
@@ -270,7 +270,7 @@ class _$CheckinImpl implements _Checkin {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CheckinRequest request)? checkin,
+    TResult Function(CheckinCheckOutRequest request)? checkin,
     required TResult orElse(),
   }) {
     if (checkin != null) {
@@ -312,9 +312,9 @@ class _$CheckinImpl implements _Checkin {
 }
 
 abstract class _Checkin implements CheckinAttendanceEvent {
-  const factory _Checkin(final CheckinRequest request) = _$CheckinImpl;
+  const factory _Checkin(final CheckinCheckOutRequest request) = _$CheckinImpl;
 
-  CheckinRequest get request;
+  CheckinCheckOutRequest get request;
 
   /// Create a copy of CheckinAttendanceEvent
   /// with the given fields replaced by the non-null parameter values.

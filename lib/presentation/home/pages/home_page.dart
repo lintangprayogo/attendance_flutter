@@ -1,9 +1,12 @@
+import 'package:detect_fake_location/detect_fake_location.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 import '../../../core/core.dart';
 import '../../../data/datasource/auth_local_datasource.dart';
 import '../widgets/menu_button.dart';
+import 'attendance_check_in_page.dart';
+import 'attendance_check_out_page.dart';
 import 'register_face_attendance_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,7 +34,6 @@ class _HomePageState extends State<HomePage> {
       });
     } catch (e) {
       // Tangani error di sini jika ada masalah dalam mendapatkan authData
-
       log.d('Error fetching auth data: $e');
       setState(() {
         faceEmbedding = null; // Atur faceEmbedding ke null jika ada kesalahan
@@ -146,12 +148,68 @@ class _HomePageState extends State<HomePage> {
                   MenuButton(
                     label: 'Datang',
                     iconPath: Assets.icons.menu.datang.path,
-                    onPressed: () {},
+                    onPressed: () async {
+                      bool isFakeLocation =
+                         await DetectFakeLocation().detectFakeLocation();
+                      if (isFakeLocation) {
+                        if (!mounted) return;
+                        showDialog(
+                          context: this.context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: const Text(
+                                'Fake Location Decteed',
+                              ),
+                              content: const Text(
+                                  'Please disable fake location to proceed.'),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Ok'))
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        if (!mounted) return;
+                        this.context.push(const AttendanceCheckInPage());
+                      }
+                    },
                   ),
                   MenuButton(
                     label: 'Pulang',
                     iconPath: Assets.icons.menu.pulang.path,
-                    onPressed: () {},
+                    onPressed: () async {
+                      bool isFakeLocation =
+                          await DetectFakeLocation().detectFakeLocation();
+                      if (isFakeLocation) {
+                        if (!mounted) return;
+                        showDialog(
+                          context: this.context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: const Text(
+                                'Fake Location Decteed',
+                              ),
+                              content: const Text(
+                                  'Please disable fake location to proceed.'),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text('Ok'))
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                         if (!mounted) return;
+                        this.context.push(const AttendanceCheckOutPage());
+                      }
+                    },
                   ),
                   MenuButton(
                     label: 'Jadwal',
@@ -177,7 +235,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SpaceHeight(24.0),
               faceEmbedding != null
-                  ?  Button.filled(
+                  ? Button.filled(
                       onPressed: () {},
                       label: 'Attendance Using Face ID',
                       icon: Assets.icons.attendance.svg(),

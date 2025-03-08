@@ -46,6 +46,7 @@ class AttendanceRemoteDatasource {
             'authorization': 'Bearer ${auth?.token}'
           }));
 
+      print('attendance ${response.data}');
       return right(AttendanceRecordModel.fromMap(response.data['attendance']));
     } catch (e) {
       if (e is DioException) {

@@ -1,9 +1,9 @@
 class AttendanceRecordModel {
   DateTime date;
-  String timeIn;
-  String timeOut;
-  String latLonIn;
-  String latLonOut;
+  String? timeIn;
+  String? timeOut;
+  String? latLonIn;
+  String? latLonOut;
 
   AttendanceRecordModel({
     required this.date,

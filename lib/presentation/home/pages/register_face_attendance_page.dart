@@ -35,31 +35,15 @@ class _RegisterFaceAttendencePageState
 
   late List<RecognitionEmbedding> recognitions = [];
 
-  //TODO declare face detectore
+  //declare face detectore
   late FaceDetector detector;
 
-  //TODO declare face recognizer
+  // declare face recognizer
   late Recognizer recognizer;
 
   bool isBusy = false;
   bool isTakenPicture = false;
 
-//   Future<XFile> convertImageToXFile(img.Image image) async {
-//   // Get a temporary directory path
-//   String tempDir = (await getTemporaryDirectory()).path;
-
-//   // Create a file path within the temporary directory
-//   String filePath = '$tempDir/image.jpg';
-
-//   // Save the image to the file path
-//   File file = File(filePath);
-//   await file.writeAsBytes(img.encodeJpg(image));
-
-//   // Create an XFile from the saved file
-//   XFile xFile = XFile(filePath);
-
-//   return xFile;
-// }
 
   @override
   void initState() {
@@ -75,11 +59,7 @@ class _RegisterFaceAttendencePageState
     _initializeCamera();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    _controller!.dispose();
-  }
+
 
   void _initializeCamera() async {
     _availableCameras = await availableCameras();
@@ -216,6 +196,11 @@ class _RegisterFaceAttendencePageState
 
       recognitions.add(recognition);
 
+
+      if (!mounted) {
+        return;
+      }
+      
       //show face registration dialogue
       if (register) {
         showFaceRegistrationDialogue(

@@ -19,19 +19,19 @@ mixin _$CheckoutAttendanceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CheckoutRequest request) checkout,
+    required TResult Function(CheckinCheckOutRequest request) checkout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CheckoutRequest request)? checkout,
+    TResult? Function(CheckinCheckOutRequest request)? checkout,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CheckoutRequest request)? checkout,
+    TResult Function(CheckinCheckOutRequest request)? checkout,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CheckoutRequest request) checkout,
+    required TResult Function(CheckinCheckOutRequest request) checkout,
   }) {
     return started();
   }
@@ -129,7 +129,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CheckoutRequest request)? checkout,
+    TResult? Function(CheckinCheckOutRequest request)? checkout,
   }) {
     return started?.call();
   }
@@ -138,7 +138,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CheckoutRequest request)? checkout,
+    TResult Function(CheckinCheckOutRequest request)? checkout,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -189,7 +189,7 @@ abstract class _$$CheckoutImplCopyWith<$Res> {
           _$CheckoutImpl value, $Res Function(_$CheckoutImpl) then) =
       __$$CheckoutImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({CheckoutRequest request});
+  $Res call({CheckinCheckOutRequest request});
 }
 
 /// @nodoc
@@ -211,7 +211,7 @@ class __$$CheckoutImplCopyWithImpl<$Res>
       null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
-              as CheckoutRequest,
+              as CheckinCheckOutRequest,
     ));
   }
 }
@@ -222,7 +222,7 @@ class _$CheckoutImpl implements _Checkout {
   const _$CheckoutImpl(this.request);
 
   @override
-  final CheckoutRequest request;
+  final CheckinCheckOutRequest request;
 
   @override
   String toString() {
@@ -252,7 +252,7 @@ class _$CheckoutImpl implements _Checkout {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CheckoutRequest request) checkout,
+    required TResult Function(CheckinCheckOutRequest request) checkout,
   }) {
     return checkout(request);
   }
@@ -261,7 +261,7 @@ class _$CheckoutImpl implements _Checkout {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CheckoutRequest request)? checkout,
+    TResult? Function(CheckinCheckOutRequest request)? checkout,
   }) {
     return checkout?.call(request);
   }
@@ -270,7 +270,7 @@ class _$CheckoutImpl implements _Checkout {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CheckoutRequest request)? checkout,
+    TResult Function(CheckinCheckOutRequest request)? checkout,
     required TResult orElse(),
   }) {
     if (checkout != null) {
@@ -312,9 +312,10 @@ class _$CheckoutImpl implements _Checkout {
 }
 
 abstract class _Checkout implements CheckoutAttendanceEvent {
-  const factory _Checkout(final CheckoutRequest request) = _$CheckoutImpl;
+  const factory _Checkout(final CheckinCheckOutRequest request) =
+      _$CheckoutImpl;
 
-  CheckoutRequest get request;
+  CheckinCheckOutRequest get request;
 
   /// Create a copy of CheckoutAttendanceEvent
   /// with the given fields replaced by the non-null parameter values.
