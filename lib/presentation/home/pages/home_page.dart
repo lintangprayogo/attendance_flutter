@@ -454,7 +454,13 @@ class _HomePageState extends State<HomePage> {
                             );
                             return Button.filled(
                               onPressed: () {
-                                if (!isCheckedin) {
+                                if (distanceKm > radiusKm) {
+                                  ScaffoldMessenger.of(this.context)
+                                      .showSnackBar(const SnackBar(
+                                    content: Text('Anda Diluar jangkauan'),
+                                    backgroundColor: Colors.red,
+                                  ));
+                                } else if (!isCheckedin) {
                                   this
                                       .context
                                       .push(const AttendanceCheckInPage());
@@ -469,12 +475,6 @@ class _HomePageState extends State<HomePage> {
                                   ScaffoldMessenger.of(this.context)
                                       .showSnackBar(const SnackBar(
                                     content: Text('Belum mendapatkan Lokasi'),
-                                    backgroundColor: Colors.red,
-                                  ));
-                                } else if (distanceKm > radiusKm) {
-                                  ScaffoldMessenger.of(this.context)
-                                      .showSnackBar(const SnackBar(
-                                    content: Text('Anda Diluar jangkauan'),
                                     backgroundColor: Colors.red,
                                   ));
                                 } else {
