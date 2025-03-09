@@ -11,6 +11,7 @@ import 'presentation/auth/splash_page.dart';
 import 'presentation/home/bloc/checkin_attendace/checkin_attendance_bloc.dart';
 import 'presentation/home/bloc/checkout_attendace/checkout_attendance_bloc.dart';
 import 'presentation/home/bloc/get_company/get_company_bloc.dart';
+import 'presentation/home/bloc/is_checkedin/is_checkedin_bloc.dart';
 import 'presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
 
 void main() {
@@ -40,8 +41,9 @@ class MyApp extends StatelessWidget {
             create: (context) =>
                 CheckoutAttendanceBloc(AttendanceRemoteDatasource())),
         BlocProvider(
-            create: (context) =>
-                GetCompanyBloc(AttendanceRemoteDatasource())),
+            create: (context) => GetCompanyBloc(AttendanceRemoteDatasource())),
+        BlocProvider(
+            create: (context) => IsCheckedinBloc(AttendanceRemoteDatasource()))
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

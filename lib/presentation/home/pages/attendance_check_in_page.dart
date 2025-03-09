@@ -8,6 +8,7 @@ import 'package:location/location.dart';
 
 import '../../../core/core.dart';
 import '../../../data/model/request/check_in_check_out_request.dart';
+import '../bloc/checkin_attendace/checkin_attendance_bloc.dart';
 import '../bloc/checkout_attendace/checkout_attendance_bloc.dart';
 import '../widgets/face_detector_painter.dart';
 import 'attendance_success_page.dart';
@@ -223,8 +224,8 @@ class _AttendanceCheckInPageState extends State<AttendanceCheckInPage> {
 
   void _takeAbsen() async {
     if (mounted) {
-      context.read<CheckoutAttendanceBloc>().add(
-            CheckoutAttendanceEvent.checkout(
+      context.read<CheckinAttendanceBloc>().add(
+            CheckinAttendanceEvent.checkin(
                 CheckinCheckOutRequest(latitude: latitude.toString(), longitude: longitude.toString())),
           );
     }
@@ -407,8 +408,8 @@ class _AttendanceCheckInPageState extends State<AttendanceCheckInPage> {
                           icon: Assets.icons.reverse.svg(width: 48.0),
                         ),
                         const Spacer(),
-                        BlocConsumer<CheckoutAttendanceBloc,
-                            CheckoutAttendanceState>(
+                        BlocConsumer<CheckinAttendanceBloc,
+                            CheckinAttendanceState>(
                           listener: (context, state) {
                             state.maybeWhen(
                               orElse: () {},

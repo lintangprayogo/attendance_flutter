@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/core.dart';
+import '../bloc/is_checkedin/is_checkedin_bloc.dart';
 
 class AttendanceSuccessPage extends StatelessWidget {
-  
   final String status;
   const AttendanceSuccessPage({super.key, required this.status});
 
@@ -37,7 +38,10 @@ class AttendanceSuccessPage extends StatelessWidget {
             ),
             const SpaceHeight(80.0),
             Button.filled(
-              onPressed: () => context.popToRoot(),
+              onPressed: () {
+                context.read<IsCheckedinBloc>().add(const IsCheckedinEvent.isCheckedIn());
+                context.popToRoot();
+              },
               label: 'Oke, dimengerti',
             ),
           ],

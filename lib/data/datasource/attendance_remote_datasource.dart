@@ -46,7 +46,6 @@ class AttendanceRemoteDatasource {
             'authorization': 'Bearer ${auth?.token}'
           }));
 
-      print('attendance ${response.data}');
       return right(AttendanceRecordModel.fromMap(response.data['attendance']));
     } catch (e) {
       if (e is DioException) {
@@ -81,7 +80,7 @@ class AttendanceRemoteDatasource {
     try {
       final auth = await _authLocalDatasource.getAuthData();
 
-      final response = await _dio.post('${baseUrl}is-checkin',
+      final response = await _dio.get('${baseUrl}is-checkin',
           options: Options(headers: {
             'accept': 'application',
             'authorization': 'Bearer ${auth?.token}'

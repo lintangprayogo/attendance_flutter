@@ -1,7 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:image/image.dart' as img;
@@ -10,6 +9,7 @@ import 'package:location/location.dart';
 import '../../../core/core.dart';
 import '../../../data/model/request/check_in_check_out_request.dart';
 import '../bloc/checkin_attendace/checkin_attendance_bloc.dart';
+import '../bloc/checkout_attendace/checkout_attendance_bloc.dart';
 import '../widgets/face_detector_painter.dart';
 import 'attendance_success_page.dart';
 import 'location_page.dart';
@@ -224,8 +224,8 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
 
   void _takeAbsen() async {
     if (mounted) {
-      context.read<CheckinAttendanceBloc>().add(
-            CheckinAttendanceEvent.checkin(
+      context.read<CheckoutAttendanceBloc>().add(
+            CheckoutAttendanceEvent.checkout(
                 CheckinCheckOutRequest(latitude: '0', longitude: '0')),
           );
     }
@@ -408,8 +408,8 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                           icon: Assets.icons.reverse.svg(width: 48.0),
                         ),
                         const Spacer(),
-                        BlocConsumer<CheckinAttendanceBloc,
-                            CheckinAttendanceState>(
+                        BlocConsumer<CheckoutAttendanceBloc,
+                            CheckoutAttendanceState>(
                           listener: (context, state) {
                             state.maybeWhen(
                               orElse: () {},
@@ -423,7 +423,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                               success: (responseModel) {
                                 context.pushReplacement(
                                     const AttendanceSuccessPage(
-                                        status: 'Berhasil Checkin'));
+                                        status: 'Berhasil Checkout'));
                               },
                             );
                           },
