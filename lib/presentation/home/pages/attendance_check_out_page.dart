@@ -8,7 +8,6 @@ import 'package:location/location.dart';
 
 import '../../../core/core.dart';
 import '../../../data/model/request/check_in_check_out_request.dart';
-import '../bloc/checkin_attendace/checkin_attendance_bloc.dart';
 import '../bloc/checkout_attendace/checkout_attendance_bloc.dart';
 import '../widgets/face_detector_painter.dart';
 import 'attendance_success_page.dart';

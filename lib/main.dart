@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,16 +6,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'core/core.dart';
 import 'data/datasource/attendance_remote_datasource.dart';
 import 'data/datasource/auth_remote_datasource.dart';
+import 'data/datasource/firebase_remote_datasource.dart';
+import 'data/datasource/permission_remote_data_source.dart';
+import 'firebase_options.dart';
 import 'presentation/auth/bloc/login/login_bloc.dart';
 import 'presentation/auth/bloc/logout/logout_bloc.dart';
 import 'presentation/auth/splash_page.dart';
 import 'presentation/home/bloc/checkin_attendace/checkin_attendance_bloc.dart';
 import 'presentation/home/bloc/checkout_attendace/checkout_attendance_bloc.dart';
+import 'presentation/home/bloc/create_permission/create_permission_bloc.dart';
 import 'presentation/home/bloc/get_company/get_company_bloc.dart';
 import 'presentation/home/bloc/is_checkedin/is_checkedin_bloc.dart';
 import 'presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await FirebaseMessangingRemoteDatasource().initialize();
   runApp(const MyApp());
 }
 
@@ -43,7 +53,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => GetCompanyBloc(AttendanceRemoteDatasource())),
         BlocProvider(
-            create: (context) => IsCheckedinBloc(AttendanceRemoteDatasource()))
+            create: (context) => IsCheckedinBloc(AttendanceRemoteDatasource())),
+        BlocProvider(
+            create: (context) =>
+                CreatePermissionBloc(PermissionRemoteDataSource())),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

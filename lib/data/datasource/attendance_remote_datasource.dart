@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import '../../core/constants/constants.dart';
-import '../model/company/company_response_model.dart';
 import '../model/request/check_in_check_out_request.dart';
 import '../model/response/attendance_response_model.dart';
+import '../model/response/company_response_model.dart';
 import 'auth_local_datasource.dart';
 
 class AttendanceRemoteDatasource {
@@ -18,7 +18,7 @@ class AttendanceRemoteDatasource {
 
       final response = await _dio.post('${baseUrl}api-attendances?date=$date',
           options: Options(headers: {
-            'accept': 'application',
+            'accept': 'application/json',
             'authorization': 'Bearer ${auth?.token}'
           }));
 
@@ -42,7 +42,7 @@ class AttendanceRemoteDatasource {
       final response = await _dio.post('${baseUrl}checkin',
           data: request.toJson(),
           options: Options(headers: {
-            'accept': 'application',
+            'accept': 'application/json',
             'authorization': 'Bearer ${auth?.token}'
           }));
 

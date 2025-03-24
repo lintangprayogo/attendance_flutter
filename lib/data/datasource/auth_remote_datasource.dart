@@ -36,7 +36,8 @@ class AuthRemoteDatasource {
           options: Options(
             headers: {
               'Authorization': 'Bearer ${auth?.token}',
-              'Content-Type': 'application/json'
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
             },
           ));
 
@@ -60,7 +61,8 @@ class AuthRemoteDatasource {
             'face_embedding': embedding,
           },
           options: Options(headers: {
-            'accept': 'application/json',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer ${auth?.token}',
           }));
 
@@ -69,6 +71,30 @@ class AuthRemoteDatasource {
     } catch (e) {
       if (e is DioException) {
         return Left(e.response?.statusMessage ?? '');
+      }
+      return left(e.toString());
+    }
+  }
+
+  Future<Either<String, String>> updateFcm(String fcmToken) async {
+  try {
+      final auth = await _authLocalDatasource.getAuthData();
+
+      await dio.post('${baseUrl}update-fcm-token',
+          
+          options: Options(
+            headers: {
+              'Authorization': 'Bearer ${auth?.token}',
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          ));
+
+      _authLocalDatasource.removeAuthData();
+      return right('Logout Success');
+    } catch (e) {
+      if (e is DioException) {
+        return left(e.response?.data['message'] ?? 'Something went wrong');
       }
       return left(e.toString());
     }

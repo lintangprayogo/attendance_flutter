@@ -13,6 +13,7 @@ import '../bloc/is_checkedin/is_checkedin_bloc.dart';
 import '../widgets/menu_button.dart';
 import 'attendance_check_in_page.dart';
 import 'attendance_check_out_page.dart';
+import 'permission_page.dart';
 import 'register_face_attendance_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -257,11 +258,6 @@ class _HomePageState extends State<HomePage> {
                                 } else {
                                   if (!mounted) return;
 
-                                  if (!isCheckedin) {
-                                    this
-                                        .context
-                                        .push(const AttendanceCheckInPage());
-                                  }
                                   if (longitude == null || latitude == null) {
                                     ScaffoldMessenger.of(this.context)
                                         .showSnackBar(const SnackBar(
@@ -281,6 +277,12 @@ class _HomePageState extends State<HomePage> {
                                       backgroundColor: Colors.red,
                                     ));
                                   }
+                                }
+
+                                if (!isCheckedin) {
+                                  this
+                                      .context
+                                      .push(const AttendanceCheckInPage());
                                 }
                               },
                             );
@@ -403,7 +405,9 @@ class _HomePageState extends State<HomePage> {
                   MenuButton(
                     label: 'Izin',
                     iconPath: Assets.icons.menu.izin.path,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push(const PermissionPage());
+                    },
                   ),
                   MenuButton(
                     label: 'Lembur',

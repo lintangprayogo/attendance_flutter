@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../data/datasource/attendance_remote_datasource.dart';
-import '../../../../data/model/company/company_response_model.dart';
+import '../../../../data/model/response/company_response_model.dart';
 
 part 'get_company_event.dart';
 part 'get_company_state.dart';

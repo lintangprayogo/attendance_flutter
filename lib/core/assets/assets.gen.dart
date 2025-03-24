@@ -22,8 +22,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/back.svg
   SvgGenImage get back => const SvgGenImage('assets/icons/back.svg');
 
+  /// File path: assets/icons/calendar.svg
+  SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
+
   /// File path: assets/icons/email.svg
   SvgGenImage get email => const SvgGenImage('assets/icons/email.svg');
+
+  /// File path: assets/icons/image.svg
+  SvgGenImage get image => const SvgGenImage('assets/icons/image.svg');
+
+  /// File path: assets/icons/location.svg
+  SvgGenImage get location => const SvgGenImage('assets/icons/location.svg');
 
   /// Directory path: assets/icons/menu
   $AssetsIconsMenuGen get menu => const $AssetsIconsMenuGen();
@@ -45,7 +54,10 @@ class $AssetsIconsGen {
   List<SvgGenImage> get values => [
     attendance,
     back,
+    calendar,
     email,
+    image,
+    location,
     notificationRounded,
     password,
     reverse,
