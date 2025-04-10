@@ -13,14 +13,14 @@ import '../widgets/face_detector_painter.dart';
 import 'attendance_success_page.dart';
 import 'location_page.dart';
 
-class AttendanceCheckInPage extends StatefulWidget {
-  const AttendanceCheckInPage({super.key});
+class AttendanceCheckinPage extends StatefulWidget {
+  const AttendanceCheckinPage({super.key});
 
   @override
-  State<AttendanceCheckInPage> createState() => _AttendanceCheckInPageState();
+  State<AttendanceCheckinPage> createState() => _AttendanceCheckinPageState();
 }
 
-class _AttendanceCheckInPageState extends State<AttendanceCheckInPage> {
+class _AttendanceCheckinPageState extends State<AttendanceCheckinPage> {
   List<CameraDescription>? _availableCameras;
   late CameraDescription description = _availableCameras![1];
   CameraController? _controller;
@@ -83,7 +83,7 @@ class _AttendanceCheckInPageState extends State<AttendanceCheckInPage> {
     List<Face> faces = await detector.processImage(inputImage);
 
     for (Face face in faces) {
-      print("Face location ${face.boundingBox}");
+      debugPrint('Face location ${face.boundingBox}');
     }
 
     //perform face recognition on detected faces
@@ -224,8 +224,9 @@ class _AttendanceCheckInPageState extends State<AttendanceCheckInPage> {
   void _takeAbsen() async {
     if (mounted) {
       context.read<CheckinAttendanceBloc>().add(
-            CheckinAttendanceEvent.checkin(
-                CheckinCheckOutRequest(latitude: latitude.toString(), longitude: longitude.toString())),
+            CheckinAttendanceEvent.checkin(CheckinCheckOutRequest(
+                latitude: latitude.toString(),
+                longitude: longitude.toString())),
           );
     }
   }
@@ -342,8 +343,8 @@ class _AttendanceCheckInPageState extends State<AttendanceCheckInPage> {
                 child: Container(
                   padding: const EdgeInsets.all(10.0),
                   color: isFaceRegistered
-                      ? AppColors.primary.withOpacity(0.47)
-                      : AppColors.red.withOpacity(0.47),
+                      ? AppColors.primary.withValues(alpha: .47)
+                      : AppColors.red.withValues(alpha: 0.47),
                   child: Text(
                     faceStatusMessage,
                     textAlign: TextAlign.center,

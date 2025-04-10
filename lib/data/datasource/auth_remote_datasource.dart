@@ -77,11 +77,11 @@ class AuthRemoteDatasource {
   }
 
   Future<Either<String, String>> updateFcm(String fcmToken) async {
-  try {
+    try {
       final auth = await _authLocalDatasource.getAuthData();
 
-      await dio.post('${baseUrl}update-fcm-token',
-          
+    await dio.post('${baseUrl}update-fcm-token',
+          data: {'fcm_token': fcmToken},
           options: Options(
             headers: {
               'Authorization': 'Bearer ${auth?.token}',
@@ -89,8 +89,6 @@ class AuthRemoteDatasource {
               'Content-Type': 'application/json',
             },
           ));
-
-      _authLocalDatasource.removeAuthData();
       return right('Logout Success');
     } catch (e) {
       if (e is DioException) {

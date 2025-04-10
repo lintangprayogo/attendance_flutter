@@ -16,16 +16,18 @@ class AttendanceRemoteDatasource {
     try {
       final auth = await _authLocalDatasource.getAuthData();
 
-      final response = await _dio.post('${baseUrl}api-attendances?date=$date',
+      final response = await _dio.get('${baseUrl}attendances?date=$date',
           options: Options(headers: {
             'accept': 'application/json',
             'authorization': 'Bearer ${auth?.token}'
           }));
 
-      if (response.data['data'] == null) {
+      final data =    response.data['data'] as List<dynamic>;
+
+      if (data.isEmpty) {
         return right(null);
       }
-      return right(AttendanceRecordModel.fromMap(response.data['data']));
+      return right(AttendanceRecordModel.fromMap(data.first));
     } catch (e) {
       if (e is DioException) {
         return left(e.response?.data['message'] ?? 'Something went wrong');

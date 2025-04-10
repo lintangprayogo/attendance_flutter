@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,14 +14,14 @@ import '../widgets/face_detector_painter.dart';
 import 'attendance_success_page.dart';
 import 'location_page.dart';
 
-class AttendanceCheckOutPage extends StatefulWidget {
-  const AttendanceCheckOutPage({super.key});
+class AttendanceCheckoutPage extends StatefulWidget {
+  const AttendanceCheckoutPage({super.key});
 
   @override
-  State<AttendanceCheckOutPage> createState() => _AttendanceCheckOutPageState();
+  State<AttendanceCheckoutPage> createState() => _AttendanceCheckoutPageState();
 }
 
-class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
+class _AttendanceCheckoutPageState extends State<AttendanceCheckoutPage> {
   List<CameraDescription>? _availableCameras;
   late CameraDescription description = _availableCameras![1];
   CameraController? _controller;
@@ -31,7 +32,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
   bool isFaceRegistered = false;
   String faceStatusMessage = '';
 
-  //declare face detectore
+  // declare face detectore
   late FaceDetector detector;
 
   //declare face recognizer
@@ -72,18 +73,18 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
     });
   }
 
-  //face detection on a frame
+  //TODO face detection on a frame
   dynamic _scanResults;
   CameraImage? frame;
   doFaceDetectionOnFrame() async {
-    //convert frame into InputImage format
+    //TODO convert frame into InputImage format
     InputImage inputImage = getInputImage();
 
     //pass InputImage to face detection model and detect faces
     List<Face> faces = await detector.processImage(inputImage);
 
     for (Face face in faces) {
-      print("Face location ${face.boundingBox}");
+      debugPrint('Face location ${face.boundingBox}');
     }
 
     //perform face recognition on detected faces
@@ -103,7 +104,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
 
     for (Face face in faces) {
       Rect faceRect = face.boundingBox;
-      //crop face
+      // crop face
       img.Image croppedFace = img.copyCrop(image!,
           x: faceRect.left.toInt(),
           y: faceRect.top.toInt(),
@@ -119,9 +120,6 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
       // Memeriksa validitas wajah yang dikenali
       bool isValid = await recognizer.isValidFace(recognition.embedding);
 
-      if (!mounted) {
-        return;
-      }
       // Perbarui status wajah dan pesan teks berdasarkan hasil pengenalan
       if (isValid) {
         setState(() {
@@ -159,7 +157,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
       for (var h = 0; h < height; h++) {
         final uvIndex =
             uvPixelStride * (w / 2).floor() + uvRowStride * (h / 2).floor();
-        //final index = h * width + w;
+        // final index = h * width + w;
         final yIndex = h * yRowStride + w;
 
         final y = cameraImage.planes[0].bytes[yIndex];
@@ -224,8 +222,9 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
   void _takeAbsen() async {
     if (mounted) {
       context.read<CheckoutAttendanceBloc>().add(
-            CheckoutAttendanceEvent.checkout(
-                CheckinCheckOutRequest(latitude: '0', longitude: '0')),
+            CheckoutAttendanceEvent.checkout(CheckinCheckOutRequest(
+                latitude: latitude.toString(),
+                longitude: longitude.toString())),
           );
     }
   }
@@ -246,7 +245,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
     _initializeCamera();
   }
 
-  //Show rectangles around detected faces
+  //  Show rectangles around detected faces
   Widget buildResult() {
     if (_scanResults == null || !_controller!.value.isInitialized) {
       return const Center(child: Text('Camera is not initialized'));
@@ -309,12 +308,9 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-
     if (_controller == null) {
       return const Scaffold(
-        body: Center(
-          child: CircularProgressIndicator(),
-        ),
+        body: Center(child: CircularProgressIndicator()),
       );
     }
     return SafeArea(
@@ -322,13 +318,15 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
         body: Stack(
           children: [
             Positioned(
-                top: 0.0,
-                left: 0.0,
-                width: size.width,
-                height: size.height,
-                child: AspectRatio(
-                    aspectRatio: _controller!.value.aspectRatio,
-                    child: CameraPreview(_controller!))),
+              top: 0.0,
+              left: 0.0,
+              width: size.width,
+              height: size.height,
+              child: AspectRatio(
+                aspectRatio: _controller!.value.aspectRatio,
+                child: CameraPreview(_controller!),
+              ),
+            ),
             Positioned(
                 top: 0.0,
                 left: 0.0,
@@ -336,20 +334,24 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                 height: size.height,
                 child: buildResult()),
             Positioned(
-                top: 20.0,
-                left: 40.0,
-                right: 40.0,
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
+              top: 20.0,
+              left: 40.0,
+              right: 40.0,
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
                   color: isFaceRegistered
-                      ? AppColors.primary.withOpacity(0.47)
-                      : AppColors.red.withOpacity(0.47),
-                  child: Text(
-                    faceStatusMessage,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                )),
+                      ? AppColors.primary.withValues(alpha:0.47)
+                      : AppColors.red.withValues(alpha:0.47),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Text(
+                  faceStatusMessage,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
             Positioned(
               bottom: 5.0,
               left: 0.0,
@@ -362,7 +364,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                     Container(
                       padding: const EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withOpacity(0.47),
+                        color: AppColors.primary.withValues(alpha: 0.47),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Row(
@@ -372,7 +374,7 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Absensi Datang',
+                                'Absensi Pulang',
                                 style: TextStyle(
                                   color: AppColors.white,
                                   fontWeight: FontWeight.w700,
@@ -399,7 +401,8 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                         ],
                       ),
                     ),
-                    const SpaceHeight(30.0),
+                    const SpaceHeight(15.0),
+                    const SpaceHeight(15.0),
                     Row(
                       children: [
                         IconButton(
@@ -422,7 +425,8 @@ class _AttendanceCheckOutPageState extends State<AttendanceCheckOutPage> {
                               success: (responseModel) {
                                 context.pushReplacement(
                                     const AttendanceSuccessPage(
-                                        status: 'Berhasil Checkout'));
+                                  status: 'Berhasil Checkout',
+                                ));
                               },
                             );
                           },

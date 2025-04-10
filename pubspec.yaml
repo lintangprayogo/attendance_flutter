@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   bloc: ^9.0.0
+  calendar_timeline_sbk: ^1.1.7
   camera: ^0.10.5+9
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
@@ -19,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
-  # flutter_local_notifications: ^19.0.0
+  flutter_local_notifications: ^19.0.0
   flutter_svg: ^2.0.9
   freezed: ^2.5.7
   freezed_annotation: ^2.4.4
@@ -29,7 +30,7 @@ dependencies:
   google_mlkit_face_detection: ^0.10.1
   image: ^4.5.3
   image_picker: ^1.1.2
-  intl: ^0.19.0
+  intl: ^0.17.0
   location: ^8.0.0
   logger: ^2.5.0
   permission_handler: ^11.4.0

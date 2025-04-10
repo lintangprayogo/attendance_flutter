@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/core.dart';
+import 'history_page.dart';
 import 'home_page.dart';
+import 'setting_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,8 +16,8 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   final _widgets = [
     const HomePage(),
-    const Center(child: Text('This is history page')),
-    const Center(child: Text('This is setting page')),
+    const  HistoryPage(),
+    const SettingPage(),
     const Center(child: Text('This is profile page')),
   ];
 
@@ -32,7 +34,7 @@ class _MainPageState extends State<MainPage> {
           borderRadius: const BorderRadius.vertical(top: Radius.circular(16.0)),
           boxShadow: [
             BoxShadow(
-              color: AppColors.black.withOpacity(0.06),
+              color: AppColors.black.withValues(alpha: .06),
               blurRadius: 16.0,
               blurStyle: BlurStyle.outer,
               offset: const Offset(0, -8),

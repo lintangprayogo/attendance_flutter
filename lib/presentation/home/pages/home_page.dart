@@ -8,6 +8,7 @@ import 'package:logger/logger.dart';
 import '../../../core/core.dart';
 import '../../../core/helper/radius_calculate.dart';
 import '../../../data/datasource/auth_local_datasource.dart';
+import '../bloc/get_attendance_by_date/get_attendance_by_date_bloc.dart';
 import '../bloc/get_company/get_company_bloc.dart';
 import '../bloc/is_checkedin/is_checkedin_bloc.dart';
 import '../widgets/menu_button.dart';
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _initializeFaceEmbedding();
     context.read<IsCheckedinBloc>().add(const IsCheckedinEvent.isCheckedIn());
+    context.read<GetCompanyBloc>().add(const GetCompanyEvent.getCompany());
     getCurrentPosition();
     super.initState();
   }
@@ -144,49 +146,53 @@ class _HomePageState extends State<HomePage> {
                     );
                   }),
               const SpaceHeight(24.0),
-              Container(
-                padding: const EdgeInsets.all(24.0),
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      DateTime.now().toFormattedTime(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 32.0,
-                        color: AppColors.primary,
-                      ),
+              BlocBuilder<GetAttendanceByDateBloc, GetAttendanceByDateState>(
+                builder: (context, state) {
+                  return Container(
+                    padding: const EdgeInsets.all(24.0),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
-                    Text(
-                      DateTime.now().toFormattedDate(),
-                      style: const TextStyle(
-                        color: AppColors.grey,
-                        fontSize: 12.0,
-                      ),
+                    child: Column(
+                      children: [
+                        Text(
+                          DateTime.now().toFormattedTime(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32.0,
+                            color: AppColors.primary,
+                          ),
+                        ),
+                        Text(
+                          DateTime.now().toFormattedDate(),
+                          style: const TextStyle(
+                            color: AppColors.grey,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                        const SpaceHeight(18.0),
+                        const Divider(),
+                        const SpaceHeight(30.0),
+                        Text(
+                          DateTime.now().toFormattedDate(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                        const SpaceHeight(6.0),
+                        Text(
+                          '${DateTime(2024, 3, 14, 8, 0).toFormattedTime()} - ${DateTime(2024, 3, 14, 16, 0).toFormattedTime()}',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SpaceHeight(18.0),
-                    const Divider(),
-                    const SpaceHeight(30.0),
-                    Text(
-                      DateTime.now().toFormattedDate(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.grey,
-                      ),
-                    ),
-                    const SpaceHeight(6.0),
-                    Text(
-                      '${DateTime(2024, 3, 14, 8, 0).toFormattedTime()} - ${DateTime(2024, 3, 14, 16, 0).toFormattedTime()}',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
               const SpaceHeight(80.0),
               GridView(
@@ -202,7 +208,16 @@ class _HomePageState extends State<HomePage> {
                     builder: (context, state) {
                       final double latitudePoint = state.maybeWhen(
                           orElse: () => 0.0,
-                          success: (company) => double.parse(company.latitude));
+                          error: (error) {
+                            debugPrint('Company Error: $error');
+                            return 0.0;
+                          },
+                          success: (company) {
+                            debugPrint(
+                                'Company Success: ${company.latitude},${company.longitude}');
+
+                            return double.parse(company.latitude);
+                          });
 
                       final double longitudePoint = state.maybeWhen(
                           orElse: () => 0.0,
@@ -265,11 +280,17 @@ class _HomePageState extends State<HomePage> {
                                       backgroundColor: Colors.red,
                                     ));
                                   } else if (distanceKm > radiusKm) {
+                                    debugPrint(
+                                        'currentdistanceKm: $distanceKm $latitude,$longitude $latitudePoint,$longitudePoint');
                                     ScaffoldMessenger.of(this.context)
                                         .showSnackBar(const SnackBar(
                                       content: Text('Anda Diluar jangkauan'),
                                       backgroundColor: Colors.red,
                                     ));
+                                  } else if (!isCheckedin) {
+                                    this
+                                        .context
+                                        .push(const AttendanceCheckinPage());
                                   } else {
                                     ScaffoldMessenger.of(this.context)
                                         .showSnackBar(const SnackBar(
@@ -277,12 +298,6 @@ class _HomePageState extends State<HomePage> {
                                       backgroundColor: Colors.red,
                                     ));
                                   }
-                                }
-
-                                if (!isCheckedin) {
-                                  this
-                                      .context
-                                      .push(const AttendanceCheckInPage());
                                 }
                               },
                             );
@@ -356,7 +371,16 @@ class _HomePageState extends State<HomePage> {
                                       } else {
                                         if (!mounted) return;
 
-                                        if (!isCheckedin) {
+                                        if (longitude == null ||
+                                            latitude == null) {
+                                          ScaffoldMessenger.of(this.context)
+                                              .showSnackBar(const SnackBar(
+                                            content: Text(
+                                                'Belum mendapatkan Lokasi'),
+                                            backgroundColor: Colors.red,
+                                          ));
+                                        }
+                                        else if (!isCheckedin) {
                                           ScaffoldMessenger.of(this.context)
                                               .showSnackBar(const SnackBar(
                                             content:
@@ -370,16 +394,9 @@ class _HomePageState extends State<HomePage> {
                                                 Text('Andah Telah Checkout'),
                                             backgroundColor: Colors.red,
                                           ));
-                                        }
-                                        if (longitude == null ||
-                                            latitude == null) {
-                                          ScaffoldMessenger.of(this.context)
-                                              .showSnackBar(const SnackBar(
-                                            content: Text(
-                                                'Belum mendapatkan Lokasi'),
-                                            backgroundColor: Colors.red,
-                                          ));
                                         } else if (distanceKm > radiusKm) {
+                                          debugPrint(
+                                              'currentdistanceKm: $distanceKm $latitude $longitude');
                                           ScaffoldMessenger.of(this.context)
                                               .showSnackBar(const SnackBar(
                                             content:
@@ -388,7 +405,7 @@ class _HomePageState extends State<HomePage> {
                                           ));
                                         } else {
                                           this.context.push(
-                                              const AttendanceCheckOutPage());
+                                              const AttendanceCheckoutPage());
                                         }
                                       }
                                     },
@@ -459,6 +476,9 @@ class _HomePageState extends State<HomePage> {
                             return Button.filled(
                               onPressed: () {
                                 if (distanceKm > radiusKm) {
+                                  debugPrint(
+                                      'currentdistanceKm: $distanceKm $latitude,$longitude - $latitudePoint,$longitudePoint');
+
                                   ScaffoldMessenger.of(this.context)
                                       .showSnackBar(const SnackBar(
                                     content: Text('Anda Diluar jangkauan'),
@@ -467,7 +487,7 @@ class _HomePageState extends State<HomePage> {
                                 } else if (!isCheckedin) {
                                   this
                                       .context
-                                      .push(const AttendanceCheckInPage());
+                                      .push(const AttendanceCheckinPage());
                                 } else if (isCheckedout) {
                                   ScaffoldMessenger.of(this.context)
                                       .showSnackBar(const SnackBar(
@@ -484,7 +504,7 @@ class _HomePageState extends State<HomePage> {
                                 } else {
                                   this
                                       .context
-                                      .push(const AttendanceCheckOutPage());
+                                      .push(const AttendanceCheckoutPage());
                                 }
                               },
                               label: 'Attendance Using Face ID',

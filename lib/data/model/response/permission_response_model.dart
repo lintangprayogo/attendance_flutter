@@ -1,5 +1,4 @@
 
-import 'dart:convert';
 
 class PermissionResponseModel {
      final int userId;

@@ -41,11 +41,14 @@ class _SettingPageState extends State<SettingPage> {
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () {
-              return Button.filled(
-                onPressed: () {
-                  context.read<LogoutBloc>().add(const LogoutEvent.logout());
-                },
-                label: 'Logout',
+              return Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Button.filled(
+                  onPressed: () {
+                    context.read<LogoutBloc>().add(const LogoutEvent.logout());
+                  },
+                  label: 'Logout',
+                ),
               );
             },
             loading: () {

@@ -15,6 +15,7 @@ import 'presentation/auth/splash_page.dart';
 import 'presentation/home/bloc/checkin_attendace/checkin_attendance_bloc.dart';
 import 'presentation/home/bloc/checkout_attendace/checkout_attendance_bloc.dart';
 import 'presentation/home/bloc/create_permission/create_permission_bloc.dart';
+import 'presentation/home/bloc/get_attendance_by_date/get_attendance_by_date_bloc.dart';
 import 'presentation/home/bloc/get_company/get_company_bloc.dart';
 import 'presentation/home/bloc/is_checkedin/is_checkedin_bloc.dart';
 import 'presentation/home/bloc/update_user_register_face/update_user_register_face_bloc.dart';
@@ -57,6 +58,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 CreatePermissionBloc(PermissionRemoteDataSource())),
+        BlocProvider(
+            create: (context) => GetAttendanceByDateBloc(AttendanceRemoteDatasource()))
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
